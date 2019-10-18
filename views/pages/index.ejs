@@ -1,66 +1,265 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <% include ../partials/header.ejs %>
-</head>
+<header>
+	<style type="text/css">
+		@font-face{
+			font-family: Aaargh;
+			src: url("Fonts/Aaargh.ttf");
+		}
 
+		.centerBox{
+			position:absolute;
+			top:30vh;
+			left:15vw;
+			height:10vh;
+			width:60vw;
+			transition: 1s;
+		}
+
+		.centerBoxNoAnim{
+			position:absolute;
+			top:30vh;
+			left:15vw;
+			height:10vh;
+			width:60vw;
+			transition: 0s;
+		}
+
+		.centerText{
+			position:absolute;
+			left:1vw;
+			text-align: left;
+			font-family: Aaargh;
+			font-size: 6vh;
+			transition: 1s;
+			-webkit-touch-callout: none;
+    		-webkit-user-select: none;
+     		-khtml-user-select: none;
+       		-moz-user-select: none;
+        	-ms-user-select: none;
+            user-select: none;
+		}
+
+		.textInputPlaceholder{
+			position:absolute;
+			text-align: left;
+			left:2vw;
+			top:13.5vh;
+			font-family: Aaargh;
+			color: #a8a8a8;
+			font-size: 4vh;
+			transition: 1s;
+			z-index: 2;
+			-webkit-touch-callout: none;
+    		-webkit-user-select: none;
+     		-khtml-user-select: none;
+       		-moz-user-select: none;
+        	-ms-user-select: none;
+            user-select: none;
+		}
+
+		.textInput{
+			position:absolute;
+			text-align: left;
+			left:2vw;
+			top:17vh;
+			width:50vw;
+			font-family: Aaargh;
+			font-size: 4vh;
+			transition: 1s;
+			background-color: rgba(0,0,0,0);
+			border:0px;
+			outline:none;
+			z-index: 3;
+		}
+
+		.textInputLeft{
+			position:absolute;
+			left:51vw;
+			font-size:3vh;
+			transition: 1s;
+			font-family: Aaargh;
+			text-align: center;
+			color:#7aabff;
+			top:22vh;
+			z-index:4;
+			-webkit-touch-callout: none;
+    		-webkit-user-select: none;
+     		-khtml-user-select: none;
+       		-moz-user-select: none;
+        	-ms-user-select: none;
+            user-select: none;
+		}
+
+		.textInputDeco{
+			position:absolute;
+			left:1vw;
+			top:23vh;
+			height:0.3vh;
+			width:52vw;
+			border-top:2px dotted #661fe0;
+			transition: 1s;
+		}
+
+		.textInputInstructions{
+			position:absolute;
+			left:2vw;
+			font-size:2vh;
+			transition: 1s;
+			font-family: Aaargh;
+			text-align: left;
+			color:#7aabff;
+			top:23vh;
+			z-index:5;
+			-webkit-touch-callout: none;
+    		-webkit-user-select: none;
+     		-khtml-user-select: none;
+       		-moz-user-select: none;
+        	-ms-user-select: none;
+            user-select: none;
+		}
+
+	</style>
+</header>
 <body>
+	<div class="centerBox" id="box1">
+		<p class="centerText" id="text1">First Question</p>
+		<form onsubmit="moveText(); return false;">
+			<input type="text" class="textInput" id="textInput1" onInput="hidePlaceholderText(1);updateLeft(1);" maxlength="41" onsubmit="moveText();" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+		</form>
+		<p class="textInputPlaceholder" id="textInputPlaceholder1">Input text here.</p>
+		<div class="textInputDeco" id="textInputDeco1"></div>
+		<p class="textInputLeft" id="textInputLeft1">41</p>
+		<p class="textInputInstructions" id="textInputInstructions1" style="color:rgba(0,0,0,0);">Press Enter</p>
+	</div>
+	<div class="centerBox" id="box2" style="top:20vh;">
+		<p class="centerText" id="text2" style="color:rgba(0,0,0,0);">Second Question.</p>
+		<form onsubmit="moveText(); return false;">
+			<input type="text" class="textInput" id="textInput2" onInput="hidePlaceholderText(2);updateLeft(2);" style="color:rgba(0,0,0,0);" disabled="" maxlength="41" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+		</form>
+		<p class="textInputPlaceholder" id="textInputPlaceholder2" style="color:rgba(0,0,0,0);">Input text here.</p>
+		<div class="textInputDeco" id="textInputDeco2" style="border-top-color:rgba(0,0,0,0);"></div>
+		<p class="textInputLeft" id="textInputLeft2" style="color:rgba(0,0,0,0);">41</p>
+		<p class="textInputInstructions" id="textInputInstructions2" style="color:rgba(0,0,0,0);">Press Enter</p>
+	</div>
+	<script type="text/javascript">
+		var current = 1;
 
-  <% include ../partials/nav.ejs %>
+		function updateLeft(num){
+			if(num === 1){
+				document.getElementById("textInputLeft1").innerHTML = 41-document.getElementById("textInput1").value.length;
+			} else {
+				if(num === 2){
+					document.getElementById("textInputLeft2").innerHTML = 41-document.getElementById("textInput2").value.length;
+				}
+			}
+		}
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Node on Heroku</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
+		function updateInstructions(num, val){
+			if(val===true){
+				document.getElementById("textInputInstructions"+num).style = "color:#7aabff;";
+			} else {
+				document.getElementById("textInputInstructions"+num).style = "color:rgba(0,0,0,0);";
+			}
+		}
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+		function eraseInput(num){
+			document.getElementById("textInput"+num).value = "";
+			hidePlaceholderText(num);
+			updateLeft(num);
+		}
 
+		function hidePlaceholderText(num){
+			if(num === 1){
+				if(document.getElementById("textInput1").value != ""){
+					document.getElementById("textInputPlaceholder1").setAttribute("hidden","");	
+					updateInstructions(1, true);
+				} else {
+					document.getElementById("textInputPlaceholder1").removeAttribute("hidden");
+					updateInstructions(1, false);
+				}
+			}
+			if(num === 2){
+				if(document.getElementById("textInput2").value != ""){
+					document.getElementById("textInputPlaceholder2").setAttribute("hidden","");
+					updateInstructions(2, true);
+				} else {
+					document.getElementById("textInputPlaceholder2").removeAttribute("hidden");
+					updateInstructions(2, false);
+				}
+			}
+		}
 
+		function moveText(){
+			if(current === 1){
+				updateInstructions(1, false);
+				eraseInput(2);
+				document.getElementById("box2").classList.add("centerBoxNoAnim");
+				document.getElementById("box2").style="top:50vh;";
+				document.getElementById("box2").offsetHeight;
+				document.getElementById("box2").classList.remove("centerBoxNoAnim");
+				document.getElementById("box1").style="top:20vh;";
+				document.getElementById("text1").style="color:rgba(0,0,0,0);";
+				document.getElementById("textInput1").setAttribute("disabled", "");
+				document.getElementById("textInput1").style="color:rgba(0,0,0,0);";
+				document.getElementById("textInputPlaceholder1").style="color:rgba(0,0,0,0);";
+				document.getElementById("textInputLeft1").style="color:rgba(0,0,0,0);";
+				document.getElementById("textInputDeco1").style="border-top-color:rgba(0,0,0,0);";
+				document.getElementById("textInput2").removeAttribute("disabled", "");
+				document.getElementById("box2").style="top:30vh;";
+				document.getElementById("text2").style="color:rgba(0,0,0,1);";
+				document.getElementById("textInput2").style="color:rgba(0,0,0,1);";
+				document.getElementById("textInputPlaceholder2").style="color:#a8a8a8";
+				document.getElementById("textInputDeco2").style="border-top-color:#661fe0;";
+				document.getElementById("textInputLeft2").style="color:#7aabff";
+				document.getElementById("textInput2").focus();
+				loadQuestion(url("Surveys/First.txt"));
+				current = 2;
+			} else {
+				if(current === 2){
+					updateInstructions(2, false);
+					eraseInput(1);
+					document.getElementById("box1").classList.add("centerBoxNoAnim");
+					document.getElementById("box1").style="top:50vh;";
+					document.getElementById("box1").offsetHeight;
+					document.getElementById("box1").classList.remove("centerBoxNoAnim");
+					document.getElementById("box2").style="top:20vh;";
+					document.getElementById("textInput2").setAttribute("disabled", "");
+					document.getElementById("textInputPlaceholder1").style="transition:1s;";
+					document.getElementById("textInputPlaceholder2").style="transition:1s;";
+					document.getElementById("text2").style="color:rgba(0,0,0,0);";
+					document.getElementById("textInput2").style="color:rgba(0,0,0,0);";
+					document.getElementById("textInputLeft2").style="color:rgba(0,0,0,0);";
+					document.getElementById("textInputPlaceholder2").style="color:rgba(0,0,0,0);";
+					document.getElementById("textInputDeco2").style="border-top-color:rgba(0,0,0,0);";
+					document.getElementById("box1").style="top:30vh;";
+					document.getElementById("text1").style="color:rgba(0,0,0,1);";
+					document.getElementById("textInput1").removeAttribute("disabled", "");
+					document.getElementById("textInput1").style="color:rgba(0,0,0,1);";
+					document.getElementById("textInputPlaceholder1").style="color:#a8a8a8";
+					document.getElementById("textInputDeco1").style="border-top-color:#661fe0;";
+					document.getElementById("textInputLeft1").style="color:#7aabff";
+					document.getElementById("textInput1").focus();
+					loadQuestion(url("Surveys/First.txt"));
+					current = 1;
+				}
+			}
+		}
+
+		var currentQuestion = 0;
+
+		function loadQuestion(file){
+
+			currentQuestion += 1
+			if(currentQuestion % 2 == 0){
+				document.getElementById("text1").innerHTML = fetch(file).match(/[^\r\n]+/g)[currentQuestion];
+			} else {
+				document.getElementById("text2").innerHTML = fetch(file).match(/[^\r\n]+/g)[currentQuestion];
+			}
+		}
+
+		loadQuestion("Surveys/First.txt");
+	</script>
 </body>
 </html>
