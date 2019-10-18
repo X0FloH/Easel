@@ -173,7 +173,7 @@
 		function hidePlaceholderText(num){
 			if(num === 1){
 				if(document.getElementById("textInput1").value != ""){
-					document.getElementById("textInputPlaceholder1").setAttribute("hidden","");	
+					document.getElementById("textInputPlaceholder1").setAttribute("hidden","");
 					updateInstructions(1, true);
 				} else {
 					document.getElementById("textInputPlaceholder1").removeAttribute("hidden");
@@ -253,9 +253,9 @@
 
 			currentQuestion += 1
 			if(currentQuestion % 2 == 0){
-				document.getElementById("text1").innerHTML = fetch(file).match(/[^\r\n]+/g)[currentQuestion];
+				document.getElementById("text1").innerHTML = fetch(file).text().match(/[^\r\n]+/g)[currentQuestion];
 			} else {
-				document.getElementById("text2").innerHTML = fetch(file).match(/[^\r\n]+/g)[currentQuestion];
+				document.getElementById("text2").innerHTML = fetch(file).text().match(/[^\r\n]+/g)[currentQuestion];
 			}
 		}
 
