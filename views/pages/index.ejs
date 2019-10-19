@@ -250,12 +250,29 @@
 		var currentQuestion = 0;
 
 		function loadQuestion(file){
-			var fs = require('fs');
 			currentQuestion += 1
 			if(currentQuestion % 2 == 0){
-				document.getElementById("text1").innerHTML = fs.readFileSync(file, 'utf8').match(/[^\r\n]+/g)[currentQuestion];
+				fetch(file).then(
+    			function(response) {
+						return response.text();
+    			})
+					.then(function(text){
+						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
+					})
+					.catch(function(error){
+						log("Request Failed.", error);
+					});
 			} else {
-				document.getElementById("text2").innerHTML = fs.readFileSync(file, 'utf8').match(/[^\r\n]+/g)[currentQuestion];
+				fetch(file).then(
+    			function(response) {
+						return response.text();
+    			})
+					.then(function(text){
+						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
+					})
+					.catch(function(error){
+						log("Request Failed.", error);
+					});
 			}
 		}
 
