@@ -124,7 +124,7 @@
 
 	</style>
 </header>
-<body>
+<body onload="loadQuestion('Surveys/First.js');">
 	<div class="centerBox" id="box1">
 		<p class="centerText" id="text1">First Question</p>
 		<form onsubmit="moveText(); return false;">
@@ -216,7 +216,7 @@
 				document.getElementById("textInputDeco2").style="border-top-color:#661fe0;";
 				document.getElementById("textInputLeft2").style="color:#7aabff";
 				document.getElementById("textInput2").focus();
-				loadQuestion(url("Surveys/First.txt"));
+				loadQuestion("Surveys/First.js");
 				current = 2;
 			} else {
 				if(current === 2){
@@ -243,7 +243,7 @@
 					document.getElementById("textInputDeco1").style="border-top-color:#661fe0;";
 					document.getElementById("textInputLeft1").style="color:#7aabff";
 					document.getElementById("textInput1").focus();
-					loadQuestion(url("Surveys/First.txt"));
+					loadQuestion("Surveys/First.js");
 					current = 1;
 				}
 			}
