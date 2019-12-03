@@ -288,8 +288,8 @@
 						}
 				}
 		}
-		setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + ".js"); }, 500);
-
+		setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + ".js"); }, 1000);
+		setTimeout(() => {  log("Loaded"); }, 1000);
 	</script>
 </body>
 </html>
