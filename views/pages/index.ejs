@@ -195,7 +195,7 @@
 				document.getElementById("textInputDeco2").style="border-top-color:#661fe0;";
 				document.getElementById("textInputLeft2").style="color:#7aabff";
 				document.getElementById("textInput2").focus();
-				loadQuestion("Surveys/First.js");
+				loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 				current = 2;
 			} else {
 				if(current === 2){
@@ -222,7 +222,7 @@
 					document.getElementById("textInputDeco1").style="border-top-color:#661fe0;";
 					document.getElementById("textInputLeft1").style="color:#7aabff";
 					document.getElementById("textInput1").focus();
-					loadQuestion("Surveys/First.js");
+					loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 					current = 1;
 				}
 			}
