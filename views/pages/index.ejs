@@ -267,11 +267,9 @@
 						}
 				}
 		}
-		setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + ".js"); }, 1000);
-		setTimeout(() => {  console.log("Loaded"); }, 1000);
 	</script>
 </head>
-<body>
+<body onload="loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');">
 	<div class="centerBox" id="box1">
 		<p class="centerText" id="text1">First Question</p>
 		<form onsubmit="moveText(); return false;">
