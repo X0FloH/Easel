@@ -123,28 +123,7 @@
 		}
 
 	</style>
-</head>
-<body>
-	<div class="centerBox" id="box1">
-		<p class="centerText" id="text1">First Question</p>
-		<form onsubmit="moveText(); return false;">
-			<input type="text" class="textInput" id="textInput1" onInput="hidePlaceholderText(1);updateLeft(1);" maxlength="41" onsubmit="moveText();" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-		</form>
-		<p class="textInputPlaceholder" id="textInputPlaceholder1">Input text here.</p>
-		<div class="textInputDeco" id="textInputDeco1"></div>
-		<p class="textInputLeft" id="textInputLeft1">41</p>
-		<p class="textInputInstructions" id="textInputInstructions1" style="color:rgba(0,0,0,0);">Press Enter</p>
-	</div>
-	<div class="centerBox" id="box2" style="top:20vh;">
-		<p class="centerText" id="text2" style="color:rgba(0,0,0,0);">Second Question.</p>
-		<form onsubmit="moveText(); return false;">
-			<input type="text" class="textInput" id="textInput2" onInput="hidePlaceholderText(2);updateLeft(2);" style="color:rgba(0,0,0,0);" disabled="" maxlength="41" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-		</form>
-		<p class="textInputPlaceholder" id="textInputPlaceholder2" style="color:rgba(0,0,0,0);">Input text here.</p>
-		<div class="textInputDeco" id="textInputDeco2" style="border-top-color:rgba(0,0,0,0);"></div>
-		<p class="textInputLeft" id="textInputLeft2" style="color:rgba(0,0,0,0);">41</p>
-		<p class="textInputInstructions" id="textInputInstructions2" style="color:rgba(0,0,0,0);">Press Enter</p>
-	</div>
+
 	<script type="text/javascript">
 		var current = 1;
 
@@ -291,5 +270,28 @@
 		setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + ".js"); }, 1000);
 		setTimeout(() => {  console.log("Loaded"); }, 1000);
 	</script>
+</head>
+<body>
+	<div class="centerBox" id="box1">
+		<p class="centerText" id="text1">First Question</p>
+		<form onsubmit="moveText(); return false;">
+			<input type="text" class="textInput" id="textInput1" onInput="hidePlaceholderText(1);updateLeft(1);" maxlength="41" onsubmit="moveText();" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+		</form>
+		<p class="textInputPlaceholder" id="textInputPlaceholder1">Input text here.</p>
+		<div class="textInputDeco" id="textInputDeco1"></div>
+		<p class="textInputLeft" id="textInputLeft1">41</p>
+		<p class="textInputInstructions" id="textInputInstructions1" style="color:rgba(0,0,0,0);">Press Enter</p>
+	</div>
+	<div class="centerBox" id="box2" style="top:20vh;">
+		<p class="centerText" id="text2" style="color:rgba(0,0,0,0);">Second Question.</p>
+		<form onsubmit="moveText(); return false;">
+			<input type="text" class="textInput" id="textInput2" onInput="hidePlaceholderText(2);updateLeft(2);" style="color:rgba(0,0,0,0);" disabled="" maxlength="41" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+		</form>
+		<p class="textInputPlaceholder" id="textInputPlaceholder2" style="color:rgba(0,0,0,0);">Input text here.</p>
+		<div class="textInputDeco" id="textInputDeco2" style="border-top-color:rgba(0,0,0,0);"></div>
+		<p class="textInputLeft" id="textInputLeft2" style="color:rgba(0,0,0,0);">41</p>
+		<p class="textInputInstructions" id="textInputInstructions2" style="color:rgba(0,0,0,0);">Press Enter</p>
+	</div>
+
 </body>
 </html>
