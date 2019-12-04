@@ -70,7 +70,7 @@
         document.getElementById("questionBox" + currentAmountQuestions).removeAttribute("hidden");
       }
 
-      setTimeout(() => {updateList();}, 500);
+      setTimeout(() => {updateList();}, 100);
     </script>
   </head>
   <body>
@@ -111,7 +111,7 @@
           <input type="text" class="textInput" id="question5Input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         </form>
       </div>
-      <button class="listBox" id="addQuestion" style="left:40%;width:15%;height:7vh;padding-top:3%;">
+      <button class="listBox" id="addQuestion" style="left:40%;width:15%;height:7vh;padding-top:3%;" onclick="updateList();">
         <p class="textInput" style="text-align:center;width:100%;left:0px;top:-200%;height:100%;font-size:9vh;">+</p>
       </button>
     </div>
