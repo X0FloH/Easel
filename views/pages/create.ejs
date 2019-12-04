@@ -10,11 +10,11 @@
 
       .titleText{
         position:absolute;
-        left:1vw;
+        left: 15vw;
         text-align: left;
         font-family: Aaargh;
         font-size: 6vh;
-        transition: 1s;
+        top: 30vh;
         -webkit-touch-callout: none;
       	-webkit-user-select: none;
        	-khtml-user-select: none;
@@ -23,12 +23,24 @@
         user-select: none;
       }
 
+      .listBox{
+        position:absolute;
+        left:15vw;
+        width:70vw;
+        height:10vh;
+        border-style: groove;
+        border-width: 5px;
+        border-color: #c9c9c9;
+        background-color: #e8e8e8;
+        top: 40vh;
+      }
+
     </style>
     <script type="text/javascript">
     </script>
   </head>
   <body>
     <h1 class="titleText" id="title1">Create survey</h1>
-    
+    <div class="listBox" id="listBox"></div>
   </body>
 </html>
