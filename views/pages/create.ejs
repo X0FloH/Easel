@@ -10,12 +10,12 @@
 
       .titleText{
         position:absolute;
-        left: 15vw;
+        left: 0px;
         text-align: left;
         font-weight: normal;
         font-family: Aaargh;
         font-size: 6vh;
-        top: 10vh;
+        top: 0px;
         -webkit-touch-callout: none;
       	-webkit-user-select: none;
        	-khtml-user-select: none;
@@ -64,17 +64,21 @@
       var currentAmountQuestions = 0;
 
       function updateList(){
-        currentAmountQuestions += 1;
-        document.getElementById("listBox").style="height:" + ((currentAmountQuestions * 9) + 10) + "vh";
-        document.getElementById("addQuestion").style="left:40%;width:15%;height:7vh;padding-top:0%;top:" + (((currentAmountQuestions+1)*9)-7) + "vh;";
-        document.getElementById("questionBox" + currentAmountQuestions).removeAttribute("hidden");
+        if(currentAmountQuestions < 5){
+          currentAmountQuestions += 1;
+          document.getElementById("listBox").style="height:" + ((currentAmountQuestions * 9) + 10) + "vh";
+          document.getElementById("addQuestion").style="left:40%;width:15%;height:7vh;padding-top:0%;top:" + (((currentAmountQuestions+1)*9)-7) + "vh;";
+          document.getElementById("questionBox" + currentAmountQuestions).removeAttribute("hidden");
+        }
       }
 
       setTimeout(() => {updateList();}, 100);
     </script>
   </head>
   <body>
-    <h1 class="titleText" id="title1">Create survey</h1>
+    <button class="listBox" id="createButton" style="left:15vw;top:10vh;height:6vh;width:20vw;">
+      <h1 class="titleText" id="title1">Create survey</h1>
+    </button>
     <div class="listBox" id="listBox" style="height:55vh">
       <div class="listBox" id="questionBox1" style="left:2%;width:96%;height: 7vh;top: 2vh;" hidden>
         <p class="textInput" style="left:1%;top:-95%;font-size:6vh;">1</p>
