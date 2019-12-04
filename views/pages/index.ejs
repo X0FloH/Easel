@@ -241,7 +241,7 @@
 						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
-						log("Request Failed.", error);
+						console.log("Request Failed.", error);
 					});
 			} else {
 				fetch(file).then(
@@ -252,7 +252,7 @@
 						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
-						log("Request Failed.", error);
+						console.log("Request Failed.", error);
 					});
 			}
 		}
