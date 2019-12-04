@@ -12,6 +12,7 @@
         position:absolute;
         left: 15vw;
         text-align: left;
+        font-weight: normal;
         font-family: Aaargh;
         font-size: 6vh;
         top: 10vh;
@@ -28,6 +29,7 @@
         left:15vw;
         width:70vw;
         height:10vh;
+        border-radius: 5px;
         border-style: groove;
         border-width: 5px;
         border-color: #f2f2f2;
@@ -35,12 +37,41 @@
         top: 25vh;
       }
 
+      .textInput{
+  			position:absolute;
+  			text-align: left;
+  			left:2%;
+  			top:2%;
+  			width:96%;
+  			font-family: Aaargh;
+  			font-size: 4vh;
+  			background-color: rgba(0,0,0,0);
+  			border:0px;
+  			outline:none;
+  		}
+
+      .textInputDeco{
+  			position:absolute;
+  			left:2%;
+  			top:23%;
+  			height:54%;
+  			width:96%;
+  			border-top:2px dotted #661fe0;
+  		}
+
     </style>
     <script type="text/javascript">
     </script>
   </head>
   <body>
     <h1 class="titleText" id="title1">Create survey</h1>
-    <div class="listBox" id="listBox"></div>
+    <div class="listBox" id="listBox">
+      <div class="listBox" id="questionBox1" style="left:2%;width:96%;height:98%;top:2%;">
+        <form>
+          <input type="text" class="textInput" id="question1Input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </form>
+        <div class="textInputDeco"></div>
+      </div>
+    </div>
   </body>
 </html>
