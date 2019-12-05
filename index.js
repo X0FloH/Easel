@@ -8,7 +8,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/create', (req, res) => res.render('pages/create'))
-  .get('/createSurvey'), (req, res) => {
+  .get('/createSurvey', (req, res) => {
     var randNum = req.param('id');
     var ques1 = req.param('q1');
     var ques2 = req.param('q2');
