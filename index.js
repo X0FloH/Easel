@@ -16,7 +16,7 @@ express()
     var ques4 = req.query['q4'] || ' ';
     var ques5 = req.query['q5'] || ' ';
     var fs = require('fs');
-    fs.writeFile("public/Surveys/" + randNumStr + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
+    fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
       if(err) throw err;
       window.location.href = "/?survey=" + randNum;
     });
