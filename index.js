@@ -8,4 +8,18 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/create', (req, res) => res.render('pages/create'))
+  .get('/createSurvey'), (req, res) => {
+    var randNum = req.param('id');
+    var ques1 = req.param('q1');
+    var ques2 = req.param('q2');
+    var ques3 = req.param('q3');
+    var ques4 = req.param('q4');
+    var ques5 = req.param('q5');
+    var fs = require('fs');
+    fs.writeFile("public/Surveys/" + randNumStr + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
+      if(err) throw err;
+      console.log("Created " + randNumStr);
+    });
+    window.location.href = "easel123.herokuapp.com/?survey=" + randNum;
+  });
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

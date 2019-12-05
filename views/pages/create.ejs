@@ -58,8 +58,26 @@
   			width:80%;
   			border-top:2px dotted #661fe0;
   		}
-
     </style>
+    <script type="text/javascript">
+      var currentAmountQuestions = 0;
+
+      function updateList(){
+        if(currentAmountQuestions < 5){
+          currentAmountQuestions += 1;
+          document.getElementById("listBox").style="height:" + ((currentAmountQuestions * 9) + 10) + "vh";
+          document.getElementById("addQuestion").style="left:40%;width:15%;height:7vh;padding-top:0%;top:" + (((currentAmountQuestions+1)*9)-7) + "vh;";
+          document.getElementById("questionBox" + currentAmountQuestions).removeAttribute("hidden");
+        }
+      }
+
+      function createSurvey(){
+        var randNumStr = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+        window.location.href = "easel123.herokuapp.com/createSurvey?id=" + randNumStr;
+      }
+
+      setTimeout(() => {updateList();}, 100);
+    </script>
   </head>
   <body>
     <button class="listBox" id="createButton" style="left:15vw;top:13vh;height:10vh;width:30vw;" onclick="createSurvey();">
