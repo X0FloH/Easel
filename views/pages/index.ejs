@@ -269,12 +269,12 @@
 		}
 
 		function checkURL(){
-			if(GetURLParameter('survey') == "" || GetURLParameter('survey') == null){
+			if(GetURLParameter('survey') == "undefined" || GetURLParameter('survey') == null){
 				window.location.href = "/home";
 			}
 		}
 
-		moveText();
+		setTimeout(() => {moveText();}, 100);
 	</script>
 </head>
 <body onload="setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + '.js'); console.log('Loaded'); }, 1000);">
