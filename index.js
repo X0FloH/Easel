@@ -21,5 +21,5 @@ express()
       console.log("Created " + randNumStr);
     });
     window.location.href = "easel123.herokuapp.com/?survey=" + randNum;
-  });
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
