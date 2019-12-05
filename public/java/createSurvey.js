@@ -11,10 +11,11 @@ function updateList(){
 
 function createSurvey(){
   var randNumStr = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-  var fs = require('fs');
-  fs.writeFile("Surveys/" + randNumStr + '.js', " survey \n" + document.getElementById('question1Input').value + " \n" + document.getElementById('question2Input').value + " \n" + document.getElementById('question3Input').value + " \n" + document.getElementById('question4Input').value + " \n" + document.getElementById('question5Input').value, function(err) {
-    if(err) throw err;
-    console.log("Created " + randNumStr);
+  require(['fs'], function(fs){
+    fs.writeFile("Surveys/" + randNumStr + '.js', " survey \n" + document.getElementById('question1Input').value + " \n" + document.getElementById('question2Input').value + " \n" + document.getElementById('question3Input').value + " \n" + document.getElementById('question4Input').value + " \n" + document.getElementById('question5Input').value, function(err) {
+      if(err) throw err;
+      console.log("Created " + randNumStr);
+    });
   });
 }
 
