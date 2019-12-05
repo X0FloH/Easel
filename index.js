@@ -15,11 +15,12 @@ express()
     var ques3 = req.param('q3');
     var ques4 = req.param('q4');
     var ques5 = req.param('q5');
+    console.log("Trying to create");
     var fs = require('fs');
     fs.writeFile("public/Surveys/" + randNumStr + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
       if(err) throw err;
       console.log("Created " + randNumStr);
+      window.location.href = "/?survey=" + randNum;
     });
-    window.location.href = "/?survey=" + randNum;
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
