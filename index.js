@@ -18,7 +18,7 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
       if(err) throw err;
+      res.render('pages/creating');
     });
-    res.render('pages/creating');
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
