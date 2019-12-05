@@ -76,7 +76,7 @@
         window.location.href = "easel123.herokuapp.com/createSurvey?id=" + randNumStr + "&q1=" + document.getElementById("question1Input").value + "&q2=" + document.getElementById("question2Input").value + "&q3=" + document.getElementById("question3Input").value + "&q4=" + document.getElementById("question4Input").value + "&q5=" + document.getElementById("question5Input").value;
       }
 
-      setTimeout(() => {updateList();}, 100);
+      setTimeout(() => {updateList();}, 200);
     </script>
   </head>
   <body>
@@ -123,6 +123,5 @@
         <p class="textInput" style="text-align:center;width:100%;left:0px;top:-200%;height:100%;font-size:9vh;">+</p>
       </button>
     </div>
-    <script data-main="java/createSurvey" src="java/require.js" async></script>
   </body>
 </html>
