@@ -269,11 +269,19 @@
 		}
 
 		function checkURL(){
-			if(GetURLParameter('survey') == "undefined" || GetURLParameter('survey') == null){
+			if(GetURLParameter('survey') == "undefined" || GetURLParameter('survey') == ''){
 				window.location.href = "/home";
 			}
+			fetch('Surveys/' + GetURLParameter('survey') + '.js').then(
+				function(response) {
+				})
+				.then(function(text){
+				})
+				.catch(function(error){
+					window.location.href = "/home";
+				});
 		}
-		
+
 		checkURL();
 		setTimeout(() => {moveText();}, 100);
 	</script>
