@@ -268,7 +268,13 @@
 				}
 		}
 
-		setTimeout(() => {moveText();}, 500);
+		function checkURL(){
+			if(GetURLParameter('survey') == "" || GetURLParameter('survey') == null){
+				window.location.href = "/home";
+			}
+		}
+
+		moveText();
 	</script>
 </head>
 <body onload="setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + '.js'); console.log('Loaded'); }, 1000);">

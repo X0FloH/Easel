@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style type="text/css">
+      @font-face{
+        font-family: Aaargh;
+        src: url("Fonts/Aaargh.ttf");
+      }
+
+      .titleText{
+        position:absolute;
+        left: 0px;
+        text-align: left;
+        font-weight: normal;
+        font-family: Aaargh;
+        font-size: 6vh;
+        top: 0px;
+        -webkit-touch-callout: none;
+      	-webkit-user-select: none;
+       	-khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
+    <script type="text/javascript">
+      function GetURLParameter(sParam){
+  				var sPageURL = window.location.search.substring(1);
+  				var sURLVariables = sPageURL.split('&');
+  				for (var i = 0; i < sURLVariables.length; i++){
+  						var sParameterName = sURLVariables[i].split('=');
+  						if (sParameterName[0] == sParam){
+  								return sParameterName[1];
+  						}
+  				}
+  		}
+    </script>
+  </head>
+  <body>
+    <h1 class="titleText" style="left:10vw;">Free surveys for everyone, no login required.</h1>
+  </body>
+</html>
