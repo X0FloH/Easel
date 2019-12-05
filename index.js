@@ -37,5 +37,5 @@ express()
       res.render('pages/creating');
     });
   })
-  .get('/home', (req, res) => req.render('pages/home'))
+  .get('/home', (req, res) => res.render('pages/home'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
