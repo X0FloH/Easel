@@ -9,7 +9,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/create', (req, res) => res.render('pages/create'))
   .get('/createSurvey', (req, res) => {
-    var randNum = req.param('id');
+    var randNum = req.query['id'] || ' ';
     var ques1 = req.query['q1'] || ' ';
     var ques2 = req.query['q2'] || ' ';
     var ques3 = req.query['q3'] || ' ';
