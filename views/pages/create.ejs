@@ -73,7 +73,7 @@
 
       function createSurvey(){
         var randNumStr = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-        window.location.href = "easel123.herokuapp.com/createSurvey?id=" + randNumStr;
+        window.location.href = "easel123.herokuapp.com/createSurvey?id=" + randNumStr + "&q1=" + document.getElementById("question1Input").value + "&q2=" + document.getElementById("question2Input").value + "&q3=" + document.getElementById("question3Input").value + "&q4=" + document.getElementById("question4Input").value + "&q5=" + document.getElementById("question5Input").value;
       }
 
       setTimeout(() => {updateList();}, 100);
