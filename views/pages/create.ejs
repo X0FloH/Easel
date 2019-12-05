@@ -72,12 +72,21 @@
         }
       }
 
+      function createSurvey(){
+        var randNumStr = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+        var fs = require('fs');
+        fs.writeFile("Surveys/" + randNumStr + '.js', " survey \n" + document.getElementById('question1Input').value + " \n" + document.getElementById('question2Input').value + " \n" + document.getElementById('question3Input').value + " \n" + document.getElementById('question4Input').value + " \n" + document.getElementById('question5Input').value, function(err) {
+          if(err) throw err;
+          console.log("Created " + randNumStr);
+        });
+      }
+
       setTimeout(() => {updateList();}, 100);
     </script>
   </head>
   <body>
-    <button class="listBox" id="createButton" style="left:15vw;top:10vh;height:6vh;width:20vw;">
-      <h1 class="titleText" id="title1">Create survey</h1>
+    <button class="listBox" id="createButton" style="left:15vw;top:13vh;height:10vh;width:30vw;" onclick="createSurvey();">
+      <h1 class="titleText" id="title1" style="left:20px;font-size:5vh;top:-2vh;">Create survey</h1>
     </button>
     <div class="listBox" id="listBox" style="height:55vh">
       <div class="listBox" id="questionBox1" style="left:2%;width:96%;height: 7vh;top: 2vh;" hidden>
