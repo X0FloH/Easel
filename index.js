@@ -17,16 +17,16 @@ express()
     var ques5 = req.query['q5'] || '';
     var fileString = "";
     if(ques1 != ''){
-      fileString += ques1 + ' /n ';
+      fileString += ques1 + ' \n';
     }
     if(ques2 != ''){
-      fileString += ques2 + ' /n ';
+      fileString += ques2 + ' \n';
     }
     if(ques3 != ''){
-      fileString += ques3 + ' /n ';
+      fileString += ques3 + ' \n';
     }
     if(ques4 != ''){
-      fileString += ques4 + ' /n ';
+      fileString += ques4 + ' \n';
     }
     if(ques5 != ''){
       fileString += ques5;
