@@ -18,7 +18,7 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + ques1 + " \n" + ques2 + " \n" + ques3 + " \n" + ques4 + " \n" + ques5, function(err) {
       if(err) throw err;
-      window.location.href = "/?survey=" + randNum;
+      res.redirect('https://easel123.herokuapp.com/?survey=' + randNum);
     });
     res.render('pages/creating');
   })
