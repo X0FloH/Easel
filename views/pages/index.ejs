@@ -238,7 +238,7 @@
 						return response.text();
 					})
 					.then(function(text){
-						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
+						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
 						console.log("Request Failed.", error);
@@ -249,7 +249,7 @@
 						return response.text();
 					})
 					.then(function(text){
-						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
+						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
 						console.log("Request Failed.", error);
