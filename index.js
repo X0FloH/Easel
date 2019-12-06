@@ -35,10 +35,9 @@ express()
     fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + fileString, function(err) {
       if(err) throw err;
       var dir = 'public/Answers/' + randNum;
-      if (!fs.existsSync(dir)){
-        fs.mkdirSync(dir);
-      }
-      res.render('pages/creating');
+      mkdirp(dir, function(err){
+        res.render('pages/creating');
+      });
     });
   })
   .get('/home', (req, res) => res.render('pages/home'))
