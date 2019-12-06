@@ -175,7 +175,6 @@
 		function moveText(){
 			if(current === 1){
 				updateInstructions(1, false);
-				eraseInput(2);
 				loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 				document.getElementById("box2").classList.add("centerBoxNoAnim");
 				document.getElementById("box2").style="top:50vh;";
@@ -196,11 +195,11 @@
 				document.getElementById("textInputDeco2").style="border-top-color:#661fe0;";
 				document.getElementById("textInputLeft2").style="color:#7aabff";
 				document.getElementById("textInput2").focus();
+				eraseInput(2);
 				current = 2;
 			} else {
 				if(current === 2){
 					updateInstructions(2, false);
-					eraseInput(1);
 					loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 					document.getElementById("box1").classList.add("centerBoxNoAnim");
 					document.getElementById("box1").style="top:50vh;";
@@ -223,12 +222,19 @@
 					document.getElementById("textInputDeco1").style="border-top-color:#661fe0;";
 					document.getElementById("textInputLeft1").style="color:#7aabff";
 					document.getElementById("textInput1").focus();
+					eraseInput(1);
 					current = 1;
 				}
 			}
 		}
 
 		var currentQuestion = -1;
+
+		var a1 = "";
+		var a2 = "";
+		var a3 = "";
+		var a4 = "";
+		var a5 = "";
 
 		function loadQuestion(file){
 			currentQuestion += 1;
@@ -238,6 +244,10 @@
 						return response.text();
 					})
 					.then(function(text){
+						if(text == "undefined"){
+							window.location.href = "/submit?id=" + getElementById("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
+						}
+						this['a' + currentQuestion] = document.getElementById("textInput1").value;
 						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
@@ -249,6 +259,10 @@
 						return response.text();
 					})
 					.then(function(text){
+						if(text == "undefined"){
+							window.location.href = "/submit?id=" + getElementById("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
+						}
+						this['a' + currentQuestion] = document.getElementById("textInput2").value;
 						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){

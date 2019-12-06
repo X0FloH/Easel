@@ -34,8 +34,42 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + fileString, function(err) {
       if(err) throw err;
+      var dir = 'public/Answers/' + randNum;
+      if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+      }
       res.render('pages/creating');
     });
   })
   .get('/home', (req, res) => res.render('pages/home'))
+  .get('/submit', (req, res) => {
+    var randNum = req.query['id'] || '';
+    var ans1 = req.query['a1'] || '';
+    var ans2 = req.query['a2'] || '';
+    var ans3 = req.query['a3'] || '';
+    var ans4 = req.query['a4'] || '';
+    var ans5 = req.query['a5'] || '';
+    var fileString = "";
+    if(ans1 != ''){
+      fileString += ans1 + ' \n';
+    }
+    if(ans2 != ''){
+      fileString += ans2 + ' \n';
+    }
+    if(ans3 != ''){
+      fileString += ans3 + ' \n';
+    }
+    if(ans4 != ''){
+      fileString += ans4 + ' \n';
+    }
+    if(ans5 != ''){
+      fileString += ans5;
+    }
+    var answerId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    var fs = require('fs');
+    fs.writeFile("public/Answers/" + answerId + '.js', fileString, function(err) {
+      if(err) throw err;
+      res.render('pages/submit');
+    });
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
