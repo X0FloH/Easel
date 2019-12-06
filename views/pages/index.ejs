@@ -283,7 +283,7 @@
 		}
 
 		checkURL();
-		setTimeout(() => {moveText();}, 100);
+		setTimeout(() => {loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');}, 100);
 	</script>
 </head>
 <body onload="setTimeout(() => {  loadQuestion('Surveys/' + GetURLParameter('survey') + '.js'); console.log('Loaded'); }, 1000);">
