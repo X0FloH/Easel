@@ -176,6 +176,7 @@
 			if(current === 1){
 				updateInstructions(1, false);
 				eraseInput(2);
+				loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 				document.getElementById("box2").classList.add("centerBoxNoAnim");
 				document.getElementById("box2").style="top:50vh;";
 				document.getElementById("box2").offsetHeight;
@@ -196,11 +197,11 @@
 				document.getElementById("textInputLeft2").style="color:#7aabff";
 				document.getElementById("textInput2").focus();
 				current = 2;
-				loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 			} else {
 				if(current === 2){
 					updateInstructions(2, false);
 					eraseInput(1);
+					loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 					document.getElementById("box1").classList.add("centerBoxNoAnim");
 					document.getElementById("box1").style="top:50vh;";
 					document.getElementById("box1").offsetHeight;
@@ -223,7 +224,6 @@
 					document.getElementById("textInputLeft1").style="color:#7aabff";
 					document.getElementById("textInput1").focus();
 					current = 1;
-					loadQuestion('Surveys/' + GetURLParameter('survey') + '.js');
 				}
 			}
 		}
