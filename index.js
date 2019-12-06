@@ -35,6 +35,7 @@ express()
     fs.writeFile("public/Surveys/" + randNum + '.js', " survey \n" + fileString, function(err) {
       if(err) throw err;
       var dir = 'public/Answers/' + randNum;
+      var mkdirp = require('mkdirp');
       mkdirp(dir, function(err){
         res.render('pages/creating');
       });
