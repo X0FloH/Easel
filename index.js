@@ -37,6 +37,7 @@ express()
       var dir = 'public/Answers/' + randNum;
       var mkdirp = require('mkdirp');
       mkdirp(dir, function(err){
+        if(err) throw err;
         res.render('pages/creating');
       });
     });
