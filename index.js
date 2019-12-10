@@ -77,10 +77,10 @@ express()
   })
   .get('/answers', (req, res) => {
     var fs = require('fs');
-    var allAnswers = [];
+    ArrayList<String> allAnswers = new ArrayList<String>();
     fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
       console.log(file);
-      allAnswers += file;
+      allAnswers.add(file);
     });
     console.log(allAnswers);
     res.render('pages/answers', {msg: allAnswers});
