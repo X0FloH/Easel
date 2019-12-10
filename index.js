@@ -76,7 +76,7 @@ express()
   .get('/answers', (req, res) => {
     var fs = require('fs');
     var allAnswers = [];
-    fs.readdirSync('pages/Answers/' + req.query['id']).forEach(file => {
+    fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
       allAnswers.push(file);
     });
     res.render('pages/answers', {msg: allAnswers});
