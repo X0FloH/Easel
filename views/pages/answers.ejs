@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <style type="text/css">
+      @font-face{
+        font-family: Aaargh;
+        src: url("Fonts/Aaargh.ttf");
+      }
+
+      .titleText{
+        position:absolute;
+        left: 0px;
+        text-align: left;
+        font-weight: normal;
+        font-family: Aaargh;
+        font-size: 6vh;
+        top: 0px;
+        -webkit-touch-callout: none;
+      	-webkit-user-select: none;
+       	-khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      table#answerTable th {
+        color:black;
+        background-color:#BABABA;
+      }
+
+      table#answerTable tr:nth-child(even){
+        background-color: #eee;
+      }
+
+      table#answerTable tr:nth-child(odd){
+        background-color: #fff;
+      }
+
+    </style>
+    <script type="text/javascript">
+      function GetURLParameter(sParam){
+  				var sPageURL = window.location.search.substring(1);
+  				var sURLVariables = sPageURL.split('&');
+  				for (var i = 0; i < sURLVariables.length; i++){
+  						var sParameterName = sURLVariables[i].split('=');
+  						if (sParameterName[0] == sParam){
+  								return sParameterName[1];
+  						}
+  				}
+  		}
+
+      function getAnswers(){
+        var answerUrls = <%= msg %>;
+        answerUrls.forEach(element => {
+          fetch("Answers/" + GetURLParameter("id") + "/" + element).then(
+            function(response){
+              return response.text();
+            })
+            .then(function(text){
+              var answerArray = text.match(/[^\r\n]+/g);
+              var table = document.getElementById("answerTable");
+              var headingRow = table.insertRow(0);
+              var cellH1 = headingRow.insertCell(-1);
+              var cellH2 = headingRow.insertCell(-1);
+              var cellH3 = headingRow.insertCell(-1);
+              var cellH4 = headingRow.insertCell(-1);
+              var cellH5 = headingRow.insertCell(-1);
+              cellH1.innerHTML = GetURLParameter("q1");
+              cellH2.innerHTML = GetURLParameter("q2");
+              cellH3.innerHTML = GetURLParameter("q3");
+              cellH4.innerHTML = GetURLParameter("q4");
+              cellH5.innerHTML = GetURLParameter("q5");
+              var row = table.insertRow(-1);
+              if(answerArray[0]){
+                var cell1 = row.insertCell(0);
+                cell1.innerHTML = answerArray[0];
+              }
+              if(answerArray[1]){
+                var cell2 = row.insertCell(1);
+                cell2.innerHTML = answerArray[1];
+              }
+              if(answerArray[2]){
+                var cell3 = row.insertCell(2);
+                cell3.innerHTML = answerArray[2];
+              }
+              if(answerArray[3]){
+                var cell3 = row.insertCell(3);
+                cell3.innerHTML = answerArray[3];
+              }
+              if(answerArray[4]){
+                var cell4 = row.insertCell(4);
+                cell4.innerHTML = answerArray[4];
+              }
+            })
+            .catch(function(error){
+              console.log("Request Failed.", error);
+            });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="titleText" style="left:10vw;top:10vh;">Answers for your survey</h1>
+    <table id="answerTable">
+    </table>
+  </body>
+</html>

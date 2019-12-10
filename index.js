@@ -73,4 +73,12 @@ express()
       res.render('pages/submit');
     });
   })
+  .get('/answers', (req, res) => {
+    var fs = require('fs');
+    var allAnswers = [];
+    fs.readdirSync('pages/Answers/' + req.query['id']).forEach(file => {
+      allAnswers.push(file);
+    });
+    res.render('pages/answers', {msg: allAnswers});
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
