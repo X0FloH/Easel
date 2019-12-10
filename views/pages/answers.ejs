@@ -49,9 +49,9 @@
   		}
 
       function getAnswers(){
-        print(<%= "\'" + msg + "\'" %>);
+        print(<%= msg.toString() %>);
         print(msg);
-        var answerUrls = [<%= "\'" + msg + "\'" %>];
+        var answerUrls = [<%= msg.toString() %>];
         answerUrls.forEach(element => {
           fetch("Answers/" + GetURLParameter("id") + "/" + element).then(
             function(response){
