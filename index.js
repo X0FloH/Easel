@@ -80,7 +80,7 @@ express()
     var allAnswers = [];
     fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
       console.log(file);
-      allAnswers.add(file);
+      allAnswers.push(file);
     });
     console.log(allAnswers);
     res.render('pages/answers', {msg: allAnswers});
