@@ -38,6 +38,7 @@ express()
       var mkdirp = require('mkdirp');
       mkdirp(dir, function(err){
         if(err) throw err;
+        console.log("Made dir " + dir);
         res.render('pages/creating');
       });
     });
@@ -70,6 +71,7 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Answers/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
+      console.log("Wrote answer file public/Answers/" + answerId + '.js');
       res.render('pages/submit');
     });
   })
