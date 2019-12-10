@@ -77,7 +77,7 @@ express()
   })
   .get('/answers', (req, res) => {
     var fs = require('fs');
-    ArrayList<String> allAnswers = new ArrayList<String>();
+    var allAnswers = new ArrayList<String>();
     fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
       console.log(file);
       allAnswers.add(file);
