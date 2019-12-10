@@ -79,7 +79,7 @@ express()
     var fs = require('fs');
     var allAnswers = [];
     fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
-      console.log(file);
+      console.log(file.toString());
       allAnswers.push(file.toString());
     });
     console.log(allAnswers);
