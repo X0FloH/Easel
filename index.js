@@ -69,9 +69,9 @@ express()
     }
     var answerId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
     var fs = require('fs');
-    fs.writeFile("public/Answers/" + answerId + '.js', fileString, function(err) {
+    fs.writeFile("public/Answers/"+ randNum + "/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
-      console.log("Wrote answer file public/Answers/" + answerId + '.js');
+      console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
       res.render('pages/submit');
     });
   })
