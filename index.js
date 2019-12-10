@@ -79,6 +79,7 @@ express()
     fs.readdirSync('public/Answers/' + req.query['id']).forEach(file => {
       allAnswers.push(file);
     });
+    console.log(allAnswers);
     res.render('pages/answers', {msg: allAnswers});
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
