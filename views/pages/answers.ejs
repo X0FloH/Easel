@@ -49,7 +49,7 @@
   		}
 
       function getAnswers(){
-        var answerUrls = "\'" + <%= msg %> + "\'";
+        var answerUrls = eval('"\'"<%= msg %> + "\'"');
         answerUrls.forEach(element => {
           fetch("Answers/" + GetURLParameter("id") + "/" + element).then(
             function(response){
