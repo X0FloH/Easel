@@ -82,7 +82,8 @@ express()
       console.log(file);
       allAnswers.push(file);
     });
-    console.log(allAnswers);
-    res.render('pages/answers', {msg: allAnswers});
+    var allAnswersFixed = "'" + allAnswers.join("','") + "'";
+    console.log(allAnswersFixed);
+    res.render('pages/answers', {msg: allAnswersFixed});
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
