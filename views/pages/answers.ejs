@@ -59,17 +59,6 @@
             .then(function(text){
               var answerArray = text.match(/[^\r\n]+/g);
               var table = document.getElementById("answerTable");
-              var headingRow = table.insertRow(0);
-              var cellH1 = headingRow.insertCell(-1);
-              var cellH2 = headingRow.insertCell(-1);
-              var cellH3 = headingRow.insertCell(-1);
-              var cellH4 = headingRow.insertCell(-1);
-              var cellH5 = headingRow.insertCell(-1);
-              cellH1.innerHTML = GetURLParameter("q1");
-              cellH2.innerHTML = GetURLParameter("q2");
-              cellH3.innerHTML = GetURLParameter("q3");
-              cellH4.innerHTML = GetURLParameter("q4");
-              cellH5.innerHTML = GetURLParameter("q5");
               var row = table.insertRow(-1);
               if(answerArray[0]){
                 var cell1 = row.insertCell(0);
@@ -98,6 +87,22 @@
         });
       }
 
+      function addHeaders(){
+        var table = document.getElementById("answerTable");
+        var headingRow = table.insertRow(0);
+        var cellH1 = headingRow.insertCell(-1);
+        var cellH2 = headingRow.insertCell(-1);
+        var cellH3 = headingRow.insertCell(-1);
+        var cellH4 = headingRow.insertCell(-1);
+        var cellH5 = headingRow.insertCell(-1);
+        cellH1.innerHTML = GetURLParameter("q1");
+        cellH2.innerHTML = GetURLParameter("q2");
+        cellH3.innerHTML = GetURLParameter("q3");
+        cellH4.innerHTML = GetURLParameter("q4");
+        cellH5.innerHTML = GetURLParameter("q5");
+      }
+
+      addHeaders();
       getAnswers();
     </script>
   </head>
