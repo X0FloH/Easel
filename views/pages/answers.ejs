@@ -36,6 +36,7 @@
       }
 
     </style>
+    <script src="java/he.js"></script>
     <script type="text/javascript">
       function GetURLParameter(sParam){
   				var sPageURL = window.location.search.substring(1);
@@ -49,7 +50,7 @@
   		}
 
       function getAnswers(){
-        var answerUrls = [<%= msg %>];
+        var answerUrls = [he.decode("<%= msg %>");];
         answerUrls.forEach(element => {
           fetch("Answers/" + GetURLParameter("id") + "/" + element).then(
             function(response){
