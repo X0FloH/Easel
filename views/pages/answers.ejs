@@ -102,8 +102,8 @@
         cellH5.innerHTML = GetURLParameter("q5");
       }
 
-      addHeaders();
-      getAnswers();
+      setTimeout(() => {addHeaders();}, 100);
+      setTimeout(() => {getAnswers();}, 100);
     </script>
   </head>
   <body>
