@@ -50,7 +50,7 @@
   		}
 
       function getAnswers(){
-        var answerUrls = [he.decode("<%= msg %>");];
+        var answerUrls = [he.decode("<%= msg %>")];
         answerUrls.forEach(element => {
           fetch("Answers/" + GetURLParameter("id") + "/" + element).then(
             function(response){
