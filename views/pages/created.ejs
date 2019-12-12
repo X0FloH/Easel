@@ -9,12 +9,12 @@
 
       .titleText{
         position:absolute;
-        left: 0px;
+        left: 10vw;
         text-align: left;
         font-weight: normal;
         font-family: Aaargh;
         font-size: 6vh;
-        top: 0px;
+        top: 10vh;
         -webkit-touch-callout: none;
       	-webkit-user-select: none;
        	-khtml-user-select: none;
@@ -27,17 +27,21 @@
         left:10vw;
         width:80vw;
         position:absolute;
-        top:25vh;
+        top:30vh;
         height:10vh;
         border-color:black;
         border-width:1px;
+        border-style:solid;
       }
 
       .link{
         font-family:Aaargh;
-        font-size:7vh;
+        font-size:4vh;
         font-color:black;
         font-weight:500;
+        margin-top:0px;
+        padding-top:3vh;
+        padding-left:1vw;
       }
     </style>
     <script type="text/javascript">
@@ -61,9 +65,14 @@
     </script>
   </head>
   <body>
-    <h1 class="titleText" style="left:50px;">Thanks for creating a survey! Share it with this link:</h1>
+    <h1 class="titleText">Thanks for creating a survey! Share it with this link:</h1>
     <div class="linkBox">
       <p class="link" id="link">
+      </p>
+    </div>
+    <h1 class="titleText" style="top:35vh;font-size:4vh;">You can see the answers here:</h1>
+    <div class="linkBox" style="top:60vh;">
+      <p class="link" id="linkAnswers">
       </p>
     </div>
   </body>
