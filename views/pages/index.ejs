@@ -247,8 +247,8 @@
 						if(text.match(/[^\r\n]+/g)[currentQuestion] == undefined){
 							window.location.href = "/submit?id=" + GetURLParameter("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
 						}
-						console.log('a' + currentQuestion);
-						this['a' + (currentQuestion)] = document.getElementById("textInput1").value;
+						console.log('a' + currentQuestion-1);
+						this['a' + (currentQuestion-1)] = document.getElementById("textInput1").value;
 						document.getElementById("text2").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
@@ -263,8 +263,8 @@
 						if(text.match(/[^\r\n]+/g)[currentQuestion] == undefined){
 							window.location.href = "/submit?id=" + GetURLParameter("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
 						}
-						console.log('a' + currentQuestion);
-						this['a' + (currentQuestion)] = document.getElementById("textInput2").value;
+						console.log('a' + currentQuestion-1);
+						this['a' + (currentQuestion-1)] = document.getElementById("textInput2").value;
 						document.getElementById("text1").innerHTML = text.match(/[^\r\n]+/g)[currentQuestion];
 					})
 					.catch(function(error){
