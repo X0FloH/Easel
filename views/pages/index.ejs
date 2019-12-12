@@ -245,6 +245,7 @@
 					})
 					.then(function(text){
 						if(text.match(/[^\r\n]+/g)[currentQuestion] == undefined){
+							console.log(a1 + " - " + a2 + " - " + a3 + " - " + a4 + " - " + a5);
 							window.location.href = "/submit?id=" + GetURLParameter("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
 						}
 						this['a' + currentQuestion] = document.getElementById("textInput1").value;
@@ -260,6 +261,7 @@
 					})
 					.then(function(text){
 						if(text.match(/[^\r\n]+/g)[currentQuestion] == undefined){
+							console.log(a1 + " - " + a2 + " - " + a3 + " - " + a4 + " - " + a5);
 							window.location.href = "/submit?id=" + GetURLParameter("survey") + "&a1=" + a1 + "&a2=" + a2 + "&a3=" + a3 + "&a4=" + a4 + "&a5=" + a5;
 						}
 						this['a' + currentQuestion] = document.getElementById("textInput2").value;

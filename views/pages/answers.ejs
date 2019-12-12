@@ -96,11 +96,11 @@
         var cellH3 = headingRow.insertCell(-1);
         var cellH4 = headingRow.insertCell(-1);
         var cellH5 = headingRow.insertCell(-1);
-        cellH1.innerHTML = exec(he.decode(GetURLParameter("q1")));
-        cellH2.innerHTML = exec(he.decode(GetURLParameter("q2")));
-        cellH3.innerHTML = exec(he.decode(GetURLParameter("q3")));
-        cellH4.innerHTML = exec(he.decode(GetURLParameter("q4")));
-        cellH5.innerHTML = exec(he.decode(GetURLParameter("q5")));
+        cellH1.innerHTML = he.decode(GetURLParameter("q1"));
+        cellH2.innerHTML = he.decode(GetURLParameter("q2"));
+        cellH3.innerHTML = he.decode(GetURLParameter("q3"));
+        cellH4.innerHTML = he.decode(GetURLParameter("q4"));
+        cellH5.innerHTML = he.decode(GetURLParameter("q5"));
       }
 
       setTimeout(() => {addHeaders();}, 100);
