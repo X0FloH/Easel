@@ -30,12 +30,21 @@
         top:35vh;
         height:6vh;
         padding-top: 2vh;
+        padding-left: 1vw;
         border-color:black;
         border-width:1px;
         border-style:solid;
         font-family: Aaargh;
         font-size: 4vh;
         font-weight: 500;
+        cursor:pointer;
+        transition:1s;
+        box-shadow: 0px 0px 0px black;
+      }
+
+      linkBox:hover{
+        box-shadow: 0px 10px 5px black;
+        top: calc(35vh-10px);
       }
 
     </style>
@@ -60,8 +69,8 @@
   </head>
   <body>
     <h1 class="titleText" id="title" style="left:4vw;top:20vh;color:rgba(0,0,0,0);">Professional and free surveys for everyone, no login required.</h1>
-    <div class="linkBox">
-      <p> Start creating now! </p>
+    <div class="linkBox" onclick="window.location.href='/create'">
+      <p style="margin-top:0px;left:5vw;"> Start creating now! </p>
     </div>
   </body>
 </html>
