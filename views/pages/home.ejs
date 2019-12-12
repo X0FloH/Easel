@@ -20,7 +20,9 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        transition: 1s;
       }
+
     </style>
     <script type="text/javascript">
       function GetURLParameter(sParam){
@@ -33,9 +35,16 @@
   						}
   				}
   		}
+
+      function fadeIn(){
+        document.getElementById("title").style = "top:10vh";
+        document.getElementById("title").style = "color:black";
+      }
+
+      setTimeout(() => {fadeIn();}, 100);
     </script>
   </head>
   <body>
-    <h1 class="titleText" style="left:10vw;top:10vh;">Free surveys for everyone, no login required.</h1>
+    <h1 class="titleText" id="title" style="left:10vw;top:15vh;color:rgba(0,0,0,0);">Free surveys for everyone, no login required.</h1>
   </body>
 </html>
