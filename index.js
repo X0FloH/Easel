@@ -86,4 +86,7 @@ express()
     console.log(allAnswersFixed);
     res.render('pages/answers', {msg: allAnswersFixed});
   })
+  .get('/created', (req,res) => {
+    res.render('pages/created');
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
