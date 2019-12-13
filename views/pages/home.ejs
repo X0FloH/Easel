@@ -82,6 +82,24 @@
         transform: rotate(10deg);
       }
 
+      .headerLink{
+        right:1vw;
+        top:3.5vh;
+        width:5vw;
+        font-size:1vw;
+        font-family: Aaargh;
+        font-weight: 500;
+        transition:0.3s;
+        cursor:pointer;
+        height:0.5vh;
+        position:absolute;
+        z-index:3;
+      }
+
+      .headerLink:Hover{
+        color:#E6E6E6;
+      }
+
     </style>
     <script type="text/javascript">
       function GetURLParameter(sParam){
@@ -105,6 +123,7 @@
   <body>
     <div class="header">
       <image src="Images/LogoImage.png" class="Logo" onclick="window.location.href='/home'"></image>
+      <p class="headerLink">Create</p>
     </div>
     <h1 class="titleText" id="title" style="left:4vw;top:20vh;color:rgba(0,0,0,0);">Professional and free surveys for everyone, no login required.</h1>
     <div class="linkBox" id="button" onclick="window.location.href='/create'">
