@@ -63,6 +63,24 @@
         padding: 0 !important;
       }
 
+      .Logo{
+        left:1vw;
+        top:1vh;
+        height:8vh;
+        width:8vh;
+        position:absolute;
+        z-index:3;
+        transition:1s;
+      }
+
+      .Logo:hover{
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+      }
+
     </style>
     <script type="text/javascript">
       function GetURLParameter(sParam){
@@ -84,7 +102,9 @@
     </script>
   </head>
   <body>
-    <div class="header"></div>
+    <div class="header">
+      <image src="url('Images/LogoImage.png')" class="Logo"></image>
+    </div>
     <h1 class="titleText" id="title" style="left:4vw;top:20vh;color:rgba(0,0,0,0);">Professional and free surveys for everyone, no login required.</h1>
     <div class="linkBox" id="button" onclick="window.location.href='/create'">
       <p style="margin-top:0px;left:5vw;"> Start creating now! </p>
