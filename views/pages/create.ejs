@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Easel create survey</title>
+    <link rel="icon" href="Images/LogoImage.png">
     <style type = "text/css">
 
       @font-face{
@@ -59,6 +60,59 @@
   			width:80%;
   			border-top:2px dotted #661fe0;
   		}
+
+      .header{
+        top:0px;
+        height:8vh;
+        left:0px;
+        width:100vw;
+        background-color: #3B3B3B;
+        position:absolute;
+      }
+
+      body{
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .Logo{
+        left:1vw;
+        top:0.5vh;
+        height:7vh;
+        width:7vh;
+        position:absolute;
+        z-index:3;
+        transition:0.3s;
+        cursor:pointer;
+      }
+
+      .Logo:hover{
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        transform: rotate(10deg);
+      }
+
+      .headerLink{
+        right:1vw;
+        top:3vh;
+        width:5vw;
+        font-size:1vw;
+        font-family: Aaargh;
+        font-weight: 500;
+        transition:0.3s;
+        cursor:pointer;
+        height:0.5vh;
+        position:absolute;
+        z-index:3;
+        margin-top:0;
+        color:white;
+      }
+
+      .headerLink:Hover{
+        color:#E6E6E6;
+      }
     </style>
     <script type="text/javascript">
       var currentAmountQuestions = 0;
@@ -82,6 +136,10 @@
     </script>
   </head>
   <body>
+    <div class="header">
+      <image src="Images/LogoImage.png" class="Logo" onclick="window.location.href='/home'"></image>
+      <p class="headerLink" onclick="window.location.href='/create'">Create</p>
+    </div>
     <button class="listBox" id="createButton" style="left:15vw;top:13vh;height:10vh;width:30vw;" onclick="createSurvey();">
       <h1 class="titleText" id="title1" style="left:20px;font-size:5vh;top:-2vh;">Create survey</h1>
     </button>
