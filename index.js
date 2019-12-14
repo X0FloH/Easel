@@ -86,6 +86,21 @@ express()
     console.log(allAnswersFixed);
     res.render('pages/answers', {msg: allAnswersFixed});
   })
+  .get('/admin', (req,res) => {
+    if(req.query['usr'] == "R3L0ad" && req.query['pass'] == "Black&&White"){
+      var fs = require('fs');
+      var allSurveys = [];
+      fs.readdirSync('public/Surveys').forEach(file => {
+        console.log(file);
+        allSurveys.push(file);
+      });
+      var allSurveysFixed = "'" + allSurveys.join("','") + "'";
+      console.log(allSurveysFixed);
+      res.render('pages/admin', {msg: allSurveysFixed});
+    } else {
+      res.render('pages/adminFalseCredentials');
+    }
+  })
   .get('/created', (req,res) => {
     res.render('pages/created');
   })
