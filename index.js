@@ -88,7 +88,7 @@ express()
   })
   .get('/admin', (req,res) => {
     console.log(req.query['usr'] + " | " + req.query['pass']);
-    if(req.query['usr'] == "R3L0ad" && req.query['pass'] == "Black&&White"){
+    if(req.query['usr'] == "R3L0ad" && req.query['pass'] == "Game_Coder28"){
       var fs = require('fs');
       var allSurveys = [];
       fs.readdirSync('public/Surveys').forEach(file => {
