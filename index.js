@@ -87,6 +87,7 @@ express()
     res.render('pages/answers', {msg: allAnswersFixed});
   })
   .get('/admin', (req,res) => {
+    console.log(req.query['usr'] + " | " + req.query['pass']);
     if(req.query['usr'] == "R3L0ad" && req.query['pass'] == "Black&&White"){
       var fs = require('fs');
       var allSurveys = [];
