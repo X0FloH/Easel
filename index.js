@@ -90,6 +90,7 @@ express()
         if(err) throw err;
         console.log("public/Emails/" + randNum + ".js exists");
         fs.readFile("public/Emails/" + randNum + ".js", 'utf8', function(err, contents) {
+          if(err) throw err;
           console.log("contents => " + contents);
           var email = cryptr.decrypt(contents);
           var nodemailer = require('nodemailer');
