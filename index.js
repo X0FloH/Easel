@@ -102,7 +102,7 @@ express()
               from: 'easelsurveys@gmail.com',
               to: email,
               subject: 'Somebody answered your survey!',
-              text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum;
+              text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum
             };
 
             transporter.sendMail(mailOptions, function(error, info){
