@@ -49,6 +49,7 @@ express()
     var Cryptr = require('cryptr');
     var cryptr = new Cryptr("secreeeetkeyyyyyyyyyyyyyyyyyyyyyyoksecretttttttttttttttt");
     var emailEncrypted = cryptr.encrypt(email);
+    var fs = require('fs');
     fs.writeFile("public/Emails/" + id + ".js", emailEncrypted, function(err){
       if(err) throw err;
       res.render('pages/createdEmail');
