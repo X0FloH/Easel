@@ -88,9 +88,12 @@ express()
       if(err) throw err;
       try {
         if(fs.existsSync("public/Email/" + randNum + ".js")){
+          console.log("public/Email/" + randNum + ".js exists");
           fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
             var email = cryptr.decrypt(contents);
             var nodemailer = require('nodemailer');
+
+            console.log("decrypted email => " + email);
 
             var transporter = nodemailer.createTransport({
               service: 'gmail',
