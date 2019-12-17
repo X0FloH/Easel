@@ -52,6 +52,7 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Emails/" + id + ".js", emailEncrypted, function(err){
       if(err) throw err;
+      console.log("wrote file public/Emails/" + id + ".js" + " => " + emailEncrypted);
       res.render('pages/createdEmail');
     })
   })
@@ -117,10 +118,14 @@ express()
             });
 
           });
+        } else {
+          console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
+          res.render('pages/submit');
         }
       } catch(err) {
         console.error(err);
       }
+
     });
   })
   .get('/answers', (req, res) => {
