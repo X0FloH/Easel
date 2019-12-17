@@ -89,6 +89,7 @@ express()
       if(fs.existsSync("public/Email/" + randNum + ".js")){
         console.log("public/Email/" + randNum + ".js exists");
         fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
+          console.log("contents => " + contents);
           var email = cryptr.decrypt(contents);
           var nodemailer = require('nodemailer');
 
@@ -114,7 +115,7 @@ express()
               console.log(error);
             } else {
               console.log('Email sent: ' + info.response);
-              console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
+              console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js' + " and emailed " + email);
               res.render('pages/submit');
             }
           });
