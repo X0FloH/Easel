@@ -186,15 +186,15 @@
   					})
   					.then(function(text){
   						var questions = text.match(/[^\r\n]+/g);
+              cellH1.innerHTML = questions[1];
+              cellH2.innerHTML = questions[2];
+              cellH3.innerHTML = questions[3];
+              cellH4.innerHTML = questions[4];
+              cellH5.innerHTML = questions[5];
   					})
   					.catch(function(error){
   						console.log("Request Failed.", error);
   					});
-        cellH1.innerHTML = questions[1];
-        cellH2.innerHTML = questions[2];
-        cellH3.innerHTML = questions[3];
-        cellH4.innerHTML = questions[4];
-        cellH5.innerHTML = questions[5];
       }
 
       setTimeout(() => {addHeaders();}, 100);
