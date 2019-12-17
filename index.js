@@ -94,25 +94,22 @@ express()
           console.log("contents => " + contents);
           var email = cryptr.decrypt(contents);
           var nodemailer = require('nodemailer');
+          var smtpTransport = require('nodemailer-smtp-transport');
 
-          console.log("decrypted email => " + email);
-
-          var transporter = nodemailer.createTransport({
+          var transporter = nodemailer.createTransport(smtpTransport({
+            service: 'gmail',
             host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
-            requireTLS: true,
             auth: {
               user: 'easelsurveys@gmail.com',
               pass: 'Black&&White'
             }
-          });
+          }));
 
           var mailOptions = {
             from: 'easelsurveys@gmail.com',
             to: email,
             subject: 'Somebody answered your survey!',
-            text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum
+            text: 'You can view your answers here: https://easel123.herokuapp.com/answers?id=' + randNum
           };
 
           transporter.sendMail(mailOptions, function(error, info){
@@ -120,7 +117,6 @@ express()
               console.log(error);
             } else {
               console.log('Email sent: ' + info.response);
-              console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js' + " and emailed " + email);
               res.render('pages/submit');
             }
           });
