@@ -183,7 +183,7 @@
         document.getElementById('linkAnswers').setAttribute("href", "https://easel123.herokuapp.com/answers?id=" + id);
       }
 
-      function checkEmail(){
+      function confirmEmail(){
         if(document.getElementById("emailInput").value != ""){
           if(document.getElementById("emailInput").value.contains('@')){
             window.location.href = "/createEmail?id=" + GetURLParameter("id") +"&email=" + document.getElementById("emailInput").value;
