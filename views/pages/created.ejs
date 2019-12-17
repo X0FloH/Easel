@@ -52,6 +52,43 @@
         display:block;
       }
 
+      .emailInput{
+        font-family:Aaargh;
+        font-size:4vh;
+        font-weight:500;
+        margin-top:0px;
+        padding-top:0vh;
+        padding-left:1vw;
+        white-space: no-wrap;
+        overflow: auto;
+        width: 58.7vw;
+        height: 91%;
+        color:white;
+        display:block;
+        background:rgba(0,0,0,0);
+        border-color:rgba(0,0,0,0);
+      }
+
+      .confirmButton{
+        color: white;
+        background-color: #3297E7;
+        height: 7vh;
+        width: 19vw;
+        left: 71vw;
+        top: 70vh;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.2s;
+      }
+
+      .confirmButton:Hover{
+        background-color:#73B9F0;
+      }
+
+      .confirmButtonText{
+        color:White;
+      }
+
       .header{
         top:0px;
         height:8vh;
@@ -146,7 +183,13 @@
       <a class="link" id="linkAnswers">
       </a>
     </div>
-    <h1 class="titleText" style="top:70vh;font-size:4vh;">Or, confirm your email here and we'll email youu when somebody answers</h1>
-    
+    <h1 class="titleText" style="top:60vh;font-size:4vh;">Or, confirm your email here and we'll email you when somebody answers</h1>
+    <div class="linkBox" style="top:70vh;height:7vh;padding-top:0px;width:60vw;">
+      <input class="emailInput" id="emailInput" style="border-top-width:2px;">
+      </input>
+    </div>
+    <div class="confirmButton">
+      <p class="confirmButtonText"><b>&#10004; Confirm</b></p>
+    </div>
   </body>
 </html>
