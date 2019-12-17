@@ -86,10 +86,10 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Answers/"+ randNum + "/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
-      fs.access("public/Email/" + randNum + ".js", fs.constants.F_OK, (err) => {
+      fs.access("public/Emails/" + randNum + ".js", fs.constants.F_OK, (err) => {
         if(err) throw err;
-        console.log("public/Email/" + randNum + ".js exists");
-        fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
+        console.log("public/Emails/" + randNum + ".js exists");
+        fs.readFile("public/Emails/" + randNum + ".js", 'utf8', function(err, contents) {
           console.log("contents => " + contents);
           var email = cryptr.decrypt(contents);
           var nodemailer = require('nodemailer');
