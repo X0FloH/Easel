@@ -91,12 +91,20 @@
 
       .confirmButtonText{
         margin-top:0.5vh;
-        margin-left:0.5vw;
+        margin-left:3vw;
         color:White;
         font-family:Aaargh;
-        font-size: 3.5vw;
+        font-size: 2.3vw;
         top:0px;
         padding-top:0px;
+      }
+
+      .badEmail{
+        color:Red,
+        left:10vw;
+        font-family:Aaargh;
+        font-size:1vw;
+        top:80vh;
       }
 
       .header{
@@ -175,6 +183,18 @@
         document.getElementById('linkAnswers').setAttribute("href", "https://easel123.herokuapp.com/answers?id=" + id);
       }
 
+      function checkEmail(){
+        if(document.getElementById("emailInput").value != ""){
+          if(document.getElementById("emailInput").value.contains('@')){
+            window.location.href = "/createEmail?id=" + GetURLParameter("id") +"&email=" + document.getElementById("emailInput").value;
+          } else {
+            document.getElementById("badEmail").removeAttribute("hidden");
+          }
+        } else {
+          document.getElementById("badEmail").removeAttribute("hidden");
+        }
+      }
+
       setTimeout(() => {loadLink();}, 200);
     </script>
   </head>
@@ -198,8 +218,9 @@
       <input class="emailInput" id="emailInput" style="border-top-width:2px;">
       </input>
     </div>
-    <div class="confirmButton">
+    <div class="confirmButton" onclick="confirmEmail();">
       <p class="confirmButtonText"><b>&#10004; Confirm</b></p>
     </div>
+    <p class="badEmail" id="badEmail" hidden> Please enter a valid email </p>
   </body>
 </html>
