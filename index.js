@@ -111,6 +111,8 @@ express()
                 console.log(error);
               } else {
                 console.log('Email sent: ' + info.response);
+                console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
+                res.render('pages/submit');
               }
             });
 
@@ -119,8 +121,6 @@ express()
       } catch(err) {
         console.error(err);
       }
-      console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
-      res.render('pages/submit');
     });
   })
   .get('/answers', (req, res) => {
