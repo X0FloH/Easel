@@ -98,7 +98,10 @@ express()
           console.log("decrypted email => " + email);
 
           var transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
+            requireTLS: true,
             auth: {
               user: 'easelsurveys@gmail.com',
               pass: 'Black&&White'
