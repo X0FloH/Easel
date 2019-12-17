@@ -86,7 +86,8 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Answers/"+ randNum + "/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
-      if(fs.existsSync("public/Email/" + randNum + ".js")){
+      fs.access("public/Email/" + randNum + ".js", fs.constants.F_OK, (err) => {
+        if(err) throw err;
         console.log("public/Email/" + randNum + ".js exists");
         fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
           console.log("contents => " + contents);
@@ -119,14 +120,10 @@ express()
               res.render('pages/submit');
             }
           });
-
         });
-        } else {
-          console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
-          res.render('pages/submit');
-        }
       });
-    })
+    });
+  })
   .get('/answers', (req, res) => {
     var fs = require('fs');
     var allAnswers = [];
