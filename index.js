@@ -124,9 +124,8 @@ express()
           console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
           res.render('pages/submit');
         }
-      }
-    });
-  })
+      });
+    })
   .get('/answers', (req, res) => {
     var fs = require('fs');
     var allAnswers = [];
