@@ -179,11 +179,22 @@
         var cellH3 = headingRow.insertCell(-1);
         var cellH4 = headingRow.insertCell(-1);
         var cellH5 = headingRow.insertCell(-1);
-        cellH1.innerHTML = GetURLParameter("q1").replace("%20", " ");
-        cellH2.innerHTML = GetURLParameter("q2").replace("%20", " ");
-        cellH3.innerHTML = GetURLParameter("q3").replace("%20", " ");
-        cellH4.innerHTML = GetURLParameter("q4").replace("%20", " ");
-        cellH5.innerHTML = GetURLParameter("q5").replace("%20", " ");
+        var file = "Surveys/" + GetURLParameter('id') + ".js";
+  		  fetch(file).then(
+  			   function(response) {
+  						return response.text();
+  					})
+  					.then(function(text){
+  						var questions = text.match(/[^\r\n]+/g);
+  					})
+  					.catch(function(error){
+  						console.log("Request Failed.", error);
+  					});
+        cellH1.innerHTML = questions[1];
+        cellH2.innerHTML = questions[2];
+        cellH3.innerHTML = questions[3];
+        cellH4.innerHTML = questions[4];
+        cellH5.innerHTML = questions[5];
       }
 
       setTimeout(() => {addHeaders();}, 100);

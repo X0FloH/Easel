@@ -124,8 +124,8 @@
         var id = GetURLParameter("id");
         document.getElementById("link").innerHTML = "https://easel123.herokuapp.com/?survey=" + id;
         document.getElementById("link").setAttribute("href", "https://easel123.herokuapp.com/?survey=" + id);
-        document.getElementById('linkAnswers').innerHTML = "https://easel123.herokuapp.com/answers?id=" + id + "&q1=" + GetURLParameter("q1") + "&q2=" + GetURLParameter("q2") + "&q3=" + GetURLParameter("q3") + "&q4=" + GetURLParameter("q4") + "&q5=" + GetURLParameter("q5");
-        document.getElementById('linkAnswers').setAttribute("href", "https://easel123.herokuapp.com/answers?id=" + id + "&q1=" + GetURLParameter("q1") + "&q2=" + GetURLParameter("q2") + "&q3=" + GetURLParameter("q3") + "&q4=" + GetURLParameter("q4") + "&q5=" + GetURLParameter("q5"));
+        document.getElementById('linkAnswers').innerHTML = "https://easel123.herokuapp.com/answers?id=" + id;
+        document.getElementById('linkAnswers').setAttribute("href", "https://easel123.herokuapp.com/answers?id=" + id);
       }
 
       setTimeout(() => {loadLink();}, 200);

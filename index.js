@@ -43,6 +43,17 @@ express()
       });
     });
   })
+  .get('/createEmail', (req, res) => {
+    var id = req.query['id'] || '';
+    var email = req.query['email'] || '';
+    var Cryptr = require('cryptr');
+    var cryptr = new Cryptr("secreeeetkeyyyyyyyyyyyyyyyyyyyyyyoksecretttttttttttttttt");
+    var emailEncrypted = cryptr.encrypt(email);
+    fs.writeFile("public/Emails/" + id + ".js", emailEncrypted, function(err){
+      if(err) throw err;
+      res.render('pages/createdEmail');
+    })
+  })
   .get('/home', (req, res) => res.render('pages/home'))
   .get('/submit', (req, res) => {
     var randNum = req.query['id'] || '';
@@ -68,9 +79,45 @@ express()
       fileString += ans5;
     }
     var answerId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    var Cryptr = require('cryptr');
+    var cryptr = new Cryptr("secreeeetkeyyyyyyyyyyyyyyyyyyyyyyoksecretttttttttttttttt");
     var fs = require('fs');
     fs.writeFile("public/Answers/"+ randNum + "/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
+      try {
+        if(fs.existsSync("public/Email/" + randNum + ".js")){
+          fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
+            var email = cryptr.decrypt(contents);
+            var nodemailer = require('nodemailer');
+
+            var transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: 'easelsurveys@gmail.com',
+                pass: 'Black&&White'
+              }
+            });
+
+            var mailOptions = {
+              from: 'easelsurveys@gmail.com',
+              to: email,
+              subject: 'Somebody answered your survey!',
+              text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum;
+            };
+
+            transporter.sendMail(mailOptions, function(error, info){
+              if (error) {
+                console.log(error);
+              } else {
+                console.log('Email sent: ' + info.response);
+              }
+            });
+
+          });
+        }
+      } catch(err) {
+        console.error(err);
+      }
       console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
       res.render('pages/submit');
     });
