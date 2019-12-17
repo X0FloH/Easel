@@ -186,7 +186,7 @@
 
       function confirmEmail(){
         if(document.getElementById("emailInput").value != ""){
-          if(document.getElementById("emailInput").value.contains('@')){
+          if(document.getElementById("emailInput").value.includes('@')){
             window.location.href = "/createEmail?id=" + GetURLParameter("id") +"&email=" + document.getElementById("emailInput").value;
           } else {
             document.getElementById("badEmail").removeAttribute("hidden");
