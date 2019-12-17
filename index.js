@@ -94,16 +94,14 @@ express()
           console.log("contents => " + contents);
           var email = cryptr.decrypt(contents);
           var nodemailer = require('nodemailer');
-          var smtpTransport = require('nodemailer-smtp-transport');
 
-          var transporter = nodemailer.createTransport(smtpTransport({
+          var transporter = nodemailer.createTransport({
             service: 'gmail',
-            host: 'smtp.gmail.com',
             auth: {
               user: 'easelsurveys@gmail.com',
               pass: 'Black&&White'
             }
-          }));
+          });
 
           var mailOptions = {
             from: 'easelsurveys@gmail.com',
