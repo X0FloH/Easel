@@ -86,49 +86,45 @@ express()
     var fs = require('fs');
     fs.writeFile("public/Answers/"+ randNum + "/" + answerId + '.js', fileString, function(err) {
       if(err) throw err;
-      try {
-        if(fs.existsSync("public/Email/" + randNum + ".js")){
-          console.log("public/Email/" + randNum + ".js exists");
-          fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
-            var email = cryptr.decrypt(contents);
-            var nodemailer = require('nodemailer');
+      if(fs.existsSync("public/Email/" + randNum + ".js")){
+        console.log("public/Email/" + randNum + ".js exists");
+        fs.readFile("public/Email/" + randNum + ".js", 'utf8', function(err, contents) {
+          var email = cryptr.decrypt(contents);
+          var nodemailer = require('nodemailer');
 
-            console.log("decrypted email => " + email);
+          console.log("decrypted email => " + email);
 
-            var transporter = nodemailer.createTransport({
-              service: 'gmail',
-              auth: {
-                user: 'easelsurveys@gmail.com',
-                pass: 'Black&&White'
-              }
-            });
-
-            var mailOptions = {
-              from: 'easelsurveys@gmail.com',
-              to: email,
-              subject: 'Somebody answered your survey!',
-              text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum
-            };
-
-            transporter.sendMail(mailOptions, function(error, info){
-              if (error) {
-                console.log(error);
-              } else {
-                console.log('Email sent: ' + info.response);
-                console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
-                res.render('pages/submit');
-              }
-            });
-
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'easelsurveys@gmail.com',
+              pass: 'Black&&White'
+            }
           });
+
+          var mailOptions = {
+            from: 'easelsurveys@gmail.com',
+            to: email,
+            subject: 'Somebody answered your survey!',
+            text: 'You can view your answers at https://easel123.herokuapp.com/answers?id=' + randNum
+          };
+
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+              console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
+              res.render('pages/submit');
+            }
+          });
+
+        });
         } else {
           console.log("Wrote answer file public/Answers/" + randNum + "/" + answerId + '.js');
           res.render('pages/submit');
         }
-      } catch(err) {
-        console.error(err);
       }
-
     });
   })
   .get('/answers', (req, res) => {
